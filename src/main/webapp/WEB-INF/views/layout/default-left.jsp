@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<script>
+	$(function(){
+		$(".child-menu").click(function(){
+			alert("aaa");
+		})
+		
+	});
+	
+</script>
+
 <div class="menu-wrapper">
 
         <header class="vertical-header">
@@ -8,13 +19,25 @@
                     <div class="logo">
                         <a href="main.do"><img src="img/logo.png" alt=""></a>
                     </div><!-- end logo -->
-
+                    
+					<div class="margin-block"></div>
+					
+					<div class="menu-search">
+                        <form method="get" id="" action="loginAction.do">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="ID">
+                                <input type="text" class="form-control" placeholder="PASSWORD">
+                                <input type="submit" value="log in"></button>
+                            </div>
+                        </form>
+                    </div><!-- end menu-search -->
+					
                     <div class="margin-block"></div>
 
                     <ul class="primary-menu">
                         <li class="child-menu"><a href="#">Main <i class="fa fa-angle-right"></i></a>
                         </li>
-                        <li class="child-menu"><a href="#">Shared Links <i class="fa fa-angle-right"></i></a>
+                        <li class="child-menu"><a href="bbs.do">Shared Links <i class="fa fa-angle-right"></i></a>
                         </li>
                         <li class="child-menu"><a href="#">Black History <i class="fa fa-angle-right"></i></a>
                             <div class="sub-menu-wrapper">
@@ -71,14 +94,6 @@
                     
                     <div class="margin-block"></div>
 
-                    <div class="menu-search">
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="What you are looking?">
-                                <button class="btn btn-primary"><i class="fa fa-search"></i></button>
-                            </div>
-                        </form>
-                    </div><!-- end menu-search -->
 
                     <div class="margin-block"></div>
 

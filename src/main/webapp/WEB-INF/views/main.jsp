@@ -1,117 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<section class="section lb">
+<div class="section bgcolor noover">
 	<div class="container">
-		<div class="section-title text-center">
-			<h3>Latest News</h3>
-			<p>Maecenas sit amet tristique turpis. Quisque porttitor eros
-				quis leo pulvinar, at hendrerit sapien iaculis. Donec consectetur
-				accumsan arcu.</p>
-		</div>
-		<!-- end title -->
-
-		<div class="row text-center">
-			<div class="col-lg-4 col-md-12">
-				<div class="blog-box">
-					<div class="post-media">
-						<a href="#"><img src="img/upload/blog_01.jpg" alt=""
-							class="img-responsive"></a>
-					</div>
-					<!-- end media -->
-
-					<div class="blog-desc">
-						<h4>
-							<a href="#">The most suitable web design</a>
-						</h4>
-						<p>Praesent at suscipit ligula. Suspendisse pre neque, quis
-							suscipit enim. sed maximus, mia auctor.</p>
-					</div>
-					<!-- end blog-desc -->
-
-					<div class="post-meta">
-						<ul class="list-inline">
-							<li><a href="#">21 March 2017</a></li>
-							<li><a href="#">by HTML Design</a></li>
-							<li><a href="#">14 Share</a></li>
-						</ul>
-					</div>
-					<!-- end post-meta -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="tagline-message">
+					<h3>
+						<mark class="rotate">특별한, 앙마스, 마구니</mark>
+						웹커뮤니티에 온걸 환영합니다 !
+					</h3>
 				</div>
-				<!-- end blog -->
-			</div>
-			<!-- end col -->
-
-			<div class="col-lg-4 col-md-12">
-				<div class="blog-box">
-					<div class="post-media">
-						<a href="#"><img src="img/upload/blog_02.jpg" alt=""
-							class="img-responsive"></a>
-					</div>
-					<!-- end media -->
-
-					<div class="blog-desc">
-						<h4>
-							<a href="#">The most suitable web design</a>
-						</h4>
-						<p>Sed suscipit neque in erat posuere tristique aliquam porta
-							vestibulum. Cras placerat tincidunt.</p>
-					</div>
-					<!-- end blog-desc -->
-
-					<div class="post-meta">
-						<ul class="list-inline">
-							<li><a href="#">20 March 2017</a></li>
-							<li><a href="#">by HTML Design</a></li>
-							<li><a href="#">11 Share</a></li>
-						</ul>
-					</div>
-					<!-- end post-meta -->
-				</div>
-				<!-- end blog -->
-			</div>
-			<!-- end col -->
-
-			<div class="col-lg-4 col-md-12">
-				<div class="blog-box">
-					<div class="post-media">
-						<a href="#"><img src="img/upload/blog_03.jpg" alt=""
-							class="img-responsive"></a>
-					</div>
-					<!-- end media -->
-
-					<div class="blog-desc">
-						<h4>
-							<a href="#">Design for all mobile devices</a>
-						</h4>
-						<p>Suspendisse scelerisque ex ac mattis molestie vel enim ut
-							massa placerat faucibus sed ut dui vivamus.</p>
-					</div>
-					<!-- end blog-desc -->
-
-					<div class="post-meta">
-						<ul class="list-inline">
-							<li><a href="#">19 March 2017</a></li>
-							<li><a href="#">by HTML Design</a></li>
-							<li><a href="#">44 Share</a></li>
-						</ul>
-					</div>
-					<!-- end post-meta -->
-				</div>
-				<!-- end blog -->
 			</div>
 			<!-- end col -->
 		</div>
 		<!-- end row -->
 	</div>
+	<!-- end container -->
+</div>
+<!-- end section -->
+
+<section class="section lb nopadtop noover">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-md-12">
+				<div class="service-box m30">
+					<i class="flaticon-monitor"></i>
+					<h3>글제목1</h3>
+					<p>여기에 게시글 내용이 들어갑니다.</p>
+				</div>
+			</div>
+			<!-- end col -->
+
+			<div class="col-lg-4 col-md-12">
+				<div class="service-box m30">
+					<i class="flaticon-technology"></i>
+					<h3>글제목2</h3>
+					<p>여기에 게시글 내용이 들어갑니다.</p>
+				</div>
+			</div>
+			<!-- end col -->
+
+			<div class="col-lg-4 col-md-12">
+				<div class="service-box m30">
+					<i class="flaticon-gears"></i>
+					<h3>글제목3</h3>
+					<p>여기에 게시글 내용이 들어갑니다.</p>
+				</div>
+			</div>
+			<!-- end col -->
+		</div>
+		<!-- end row -->
+	</div>
+	<!-- end container -->
 </section>
+<!-- end section -->
 
 <section class="section">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7 col-md-12">
 				<div class="text-widget">
-					<h3>Powerful template features</h3>
+					<h3>위클리 흑역사</h3>
 
 					<p>
 						Class aptent taciti sociosqu ad litora torquent per conubia
@@ -145,18 +95,6 @@
 							</ul>
 							<!-- end check -->
 						</div>
-						<!-- end col-lg-4 -->
-						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 last">
-							<ul class="check">
-								<li>Shopping Layouts</li>
-								<li>Pre-Defined Fonts</li>
-								<li>Style Changers</li>
-								<li>Footer Styles</li>
-								<li>Header Styles</li>
-							</ul>
-							<!-- end check -->
-						</div>
-						<!-- end col-lg-4 -->
 					</div>
 					<!-- end row -->
 				</div>

@@ -10,7 +10,6 @@
 <body class="left-menu">
 	<tiles:insertAttribute name="left" />
 	<div id="wrapper">
-		<tiles:insertAttribute name="nav" />
 		<tiles:insertAttribute name="content" />
 		<tiles:insertAttribute name="footer" />
 	</div>
