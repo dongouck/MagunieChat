@@ -672,7 +672,7 @@ SECTIONS
 }
 
 .section {
-    padding: 90px 30px;
+    padding: 45px 30px;
     position: relative;
     overflow: hidden;
     display: block;
@@ -1674,7 +1674,7 @@ mark.rotate {
 }
 
 .service-box.m30 {
-    margin-top: -40px;
+    margin-top: -15px;
 }
 
 .text-widget {

@@ -4,7 +4,7 @@
 <script>
 	$(function(){
 		$(".child-menu").click(function(){
-			alert("aaa");
+			console.log("aa");
 		})
 		
 	});
