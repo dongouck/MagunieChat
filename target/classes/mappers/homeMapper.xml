@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.myspace.magunies.service.impl.HomeMapper">
+
+	<select id="selectBbsDate" resultType="String">
+
+		select now();
+
+	</select>
+	<select id="selectBbsId" resultType="Integer">
+
+		select (count(*)+1) from homebbs;
+
+	</select>
+	
+	<select id="selectHomeBbsList" resultType="Map">
+	
+	
+	</select>
+	
+	<insert id="insertBbsList" parameterType="Map">
+
+		insert into homebbs(
+					bbsId,
+					content,
+					writer,
+					bbsDate,
+					likecount,
+					dislikecount,
+					bbsAvailable,
+					replyCount
+				) values (
+					#{bbsId},
+					#{content},
+					#{writer},
+					now(),
+					#{likecount},
+					#{dislikecount},
+					#{bbsAvailable},
+					#{replyCount}
+				)
+
+	</insert>
+
+</mapper> 
+

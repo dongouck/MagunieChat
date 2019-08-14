@@ -12,13 +12,28 @@
 					</h3>
 				</div>
 			</div>
-			<!-- end col -->
 		</div>
-		<!-- end row -->
 	</div>
-	<!-- end container -->
 </div>
-<!-- end section -->
+
+<div class="service-box m30">
+	<div>
+		<div class="service-box m30">
+			<form id="homeBbs" action="homeWriteAction">
+				<select name="category">
+					<option value="1">잡담</option>
+					<option value="2">정보</option>
+					<option value="3">유머</option>
+					<option value="4">뉴스</option>
+				</select>
+				<input type="text" name="content"/>
+				<button type="submit" class="btn btn-primary">
+					<i class="fa fa-paper-plane-o"></i>
+				</button>
+			</form>
+		</div>
+	</div>
+</div>
 
 <section class="section lb nopadtop noover">
 	<div class="container">
@@ -30,7 +45,6 @@
 					<p>여기에 게시글 내용이 들어갑니다.</p>
 				</div>
 			</div>
-			<!-- end col -->
 
 			<div class="col-lg-4 col-md-12">
 				<div class="service-box m30">
