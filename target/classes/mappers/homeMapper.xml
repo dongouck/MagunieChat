@@ -3,6 +3,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myspace.magunies.service.impl.HomeMapper">
 
+	<select id="selectHomeBbsList" resultType="Map">
+	
+		SELECT 
+* FROM homebbs WHERE bbsAvailable =1 ORDER BY bbsID DESC limit 5;
+
+	</select>
+
 	<select id="selectBbsDate" resultType="String">
 
 		select now();
@@ -14,10 +21,7 @@
 
 	</select>
 	
-	<select id="selectHomeBbsList" resultType="Map">
 	
-	
-	</select>
 	
 	<insert id="insertBbsList" parameterType="Map">
 

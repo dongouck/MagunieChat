@@ -1,6 +1,8 @@
 package com.myspace.magunies.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,6 +14,8 @@ public interface HomeMapper {
 	void insertBbsList(HashMap<String, Object> bbsParambbsParam);
 
 	int selectBbsId();
+
+	List<Map> selectHomeBbsList();
 
 
 

@@ -1,5 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script>
+
+function pressEnterKey(){
+     if(event.keyCode == 13) {
+    	 submitFn();
+     }
+}
+	
+	function submitFn() {
+
+		$loginStatus = $("#loginStatus");
+		if ($loginStatus.val() != null) {
+			if ($("#homeBbsTextBox").val() == "") {
+				alert("뭐라도 좀 쓰십쇼!");
+			} else {
+				$("#homeBbs").submit();
+			}
+		} else {
+			alert("로그인하세요!");
+
+		}
+	}
+
+	$(function() {
+		$("#submitBtn").click(function() {
+			submitFn();
+
+		})
+	})
+	
+</script>
 
 <div class="section bgcolor noover">
 	<div class="container">
@@ -10,6 +43,9 @@
 						<mark class="rotate">특별한, 앙마스, 마구니</mark>
 						웹커뮤니티에 온걸 환영합니다 !
 					</h3>
+					<h3 class="subsub-menu center-content">
+						<c:out value="${sessionScope.NAME}" />
+					</h3>
 				</div>
 			</div>
 		</div>
@@ -19,18 +55,18 @@
 <div class="service-box m30">
 	<div>
 		<div class="service-box m30">
-			<form id="homeBbs" action="homeWriteAction">
+			<form id="homeBbs" method="post"  action="homeWriteAction">
 				<select name="category">
 					<option value="1">잡담</option>
 					<option value="2">정보</option>
 					<option value="3">유머</option>
 					<option value="4">뉴스</option>
 				</select>
-				<input type="text" name="content"/>
-				<button type="submit" class="btn btn-primary">
-					<i class="fa fa-paper-plane-o"></i>
-				</button>
+				<input hidden="hidden">
+				<input type="text" id="homeBbsTextBox" name="content" onkeyup="pressEnterKey();"
+					placeholder="오늘은 무슨 이야기를 하고 싶으세요?" style="width: 350px;" /> 
 			</form>
+			<button id="submitBtn" class="btn btn-primary" ></button>
 		</div>
 	</div>
 </div>
@@ -38,28 +74,27 @@
 <section class="section lb nopadtop noover">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4 col-md-12">
-				<div class="service-box m30">
-					<i class="flaticon-monitor"></i>
-					<h3>글제목1</h3>
-					<p>여기에 게시글 내용이 들어갑니다.</p>
+			<c:forEach items="${homeBbsList}" var="homeBbbsList">
+				<div class="col-lg-4 col-md-12">
+					<div class="service-box m30">
+						<!-- <i class="flaticon-monitor"></i> -->
+						<h3>
+							<c:out value="${homeBbbsList.content}" />
+						</h3>
+						<p>
+							<c:out value="${homeBbbsList.writer}" />
+						</p>
+						<p>
+							<c:out value="${homeBbbsList.bbsDate}" />
+						</p>
+					</div>
 				</div>
-			</div>
-
+			</c:forEach>
 			<div class="col-lg-4 col-md-12">
 				<div class="service-box m30">
-					<i class="flaticon-technology"></i>
-					<h3>글제목2</h3>
-					<p>여기에 게시글 내용이 들어갑니다.</p>
-				</div>
-			</div>
-			<!-- end col -->
-
-			<div class="col-lg-4 col-md-12">
-				<div class="service-box m30">
-					<i class="flaticon-gears"></i>
-					<h3>글제목3</h3>
-					<p>여기에 게시글 내용이 들어갑니다.</p>
+					<h3>
+						<a href="bbs">+</a>
+					</h3>
 				</div>
 			</div>
 			<!-- end col -->
@@ -126,23 +161,21 @@
 
 <section class="section bgcolor">
 	<div class="container">
-		<a href="#">
-			<div class="row callout">
-				<div class="col-md-4 text-center">
-					<h3>
-						<sup>$</sup>49.99
-					</h3>
-					<h4>Start your awesome project today!</h4>
-				</div>
-				<!-- end col -->
-
-				<div class="col-md-8">
-					<p class="lead">Limited time offer! Your Agency profile will be
-						added to our "Agencies" directory as well.</p>
-				</div>
+		<div class="row callout">
+			<div class="col-md-4 text-center">
+				<h3>
+					<sup>$</sup>49.99
+				</h3>
+				<h4>Start your awesome project today!</h4>
 			</div>
-			<!-- end row -->
-		</a>
+			<!-- end col -->
+
+			<div class="col-md-8">
+				<p class="lead">Limited time offer! Your Agency profile will be
+					added to our "Agencies" directory as well.</p>
+			</div>
+		</div>
+		<!-- end row -->
 	</div>
 	<!-- end container -->
 </section>

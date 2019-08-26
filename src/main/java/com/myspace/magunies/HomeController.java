@@ -1,8 +1,11 @@
 package com.myspace.magunies;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,37 +24,29 @@ public class HomeController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String home(ModelMap model) {
 		
+		List<Map> homeBbsList=homeService.selectHomeBbsList();
+		model.addAttribute("homeBbsList",homeBbsList);
+		
 		return "views/main.tiles";
 	}
-	@RequestMapping(value="homeWriteAction", method = RequestMethod.GET)
-	public String homeWrite(HomeDTO homeDTO) {
+	
+	@RequestMapping(value="homeWriteAction", method = RequestMethod.POST)
+	public String homeWrite(ModelMap model, HomeDTO homeDTO, HttpSession session) {
 		
-		/*
-		 * String getBbsDate = homeService.selectBbsDate();
-		 * System.out.println(getBbsDate);
-		 */
 		int bbsId=homeService.selectBbsId();
-		System.out.println(bbsId);
+		System.out.println(homeDTO.getContent());
 		
 		HashMap<String, Object> bbsParam=new HashMap<String, Object>();
-		
-		
 		bbsParam.put("bbsId", bbsId);//homeDTO.getBbsID()
 		bbsParam.put("content", homeDTO.getContent());
-		bbsParam.put("writer", "testWriter");//임시
+		bbsParam.put("writer", session.getAttribute("userId"));//임시
+		bbsParam.put("bbsAvailable", 1);//
 		
 		homeService.insertBbsList(bbsParam);
 		
+		List<Map> homeBbsList=homeService.selectHomeBbsList();
 		
-		/*
-		 * HashMap<String, Object> bbsParam=new HashMap<String, Object>();
-		 * bbsParam.put("bbsId", homeDTO.getBbsID()); bbsParam.put("bbsId",
-		 * homeDTO.getContent()); bbsParam.put("bbsId", homeDTO.getWriter());
-		 * bbsParam.put("bbsId", homeDTO.getBbsDate()); bbsParam.put("bbsId",
-		 * homeDTO.getLikecount()); bbsParam.put("bbsId", homeDTO.getBbsDate());
-		 * 
-		 * System.out.println(bbsParam);
-		 */
+		model.addAttribute("homeBbsList", homeBbsList);
 		
 		return "views/main.tiles";
 	}

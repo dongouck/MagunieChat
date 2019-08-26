@@ -10,6 +10,13 @@
 		<table>
 		</table>
 	</div>
+	<div>
+		<form id="linkshareInput" method="post" action="linkshareWriteAction">
+			좌표<input type="text" name="linkUrl"></br>
+			설명<input type="text" name="comment">
+		</form>
+	
+	</div>
 	<div id="latestLinks">
 		<c:forEach items="${latestLinks}" var="latestLinks" varStatus="status">
 			<div class="service-box m30">
@@ -21,7 +28,7 @@
 						<td><c:out value="${latestLinks.category}" /></td>
 					</tr>
 					<tr>
-						<td><c:out value="${latestLinks.url}" /></td>
+						<td><a href="https://<c:out value='${latestLinks.url}' />" target="_blank"><c:out value="${latestLinks.url}" /></a></td>
 					</tr>
 					<tr>
 						<td><c:out value="${latestLinks.writer}" /></td>

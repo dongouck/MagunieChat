@@ -14,9 +14,10 @@
 	
 	</select>
 	
-	<select id="getEmpName" parameterType="java.util.HashMap"
+	<select id="getBbsList" parameterType="java.util.HashMap"
 		resultType="java.util.HashMap">
-		SELECT * FROM T_WORKGROUP WHERE COUNTRY = #{COUNTRY}
+		SELECT 
+* FROM homebbs WHERE bbsAvailable =1 ORDER BY bbsID DESC limit 10;
 	</select>
 	
 	<select id="selectTestList" resultType="Map">

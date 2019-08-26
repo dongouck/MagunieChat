@@ -18,5 +18,7 @@
     <definition name="views/linkshare/*.tiles" extends="default-layout">
         <put-attribute name="content" value="/WEB-INF/views/linkshare/{1}.jsp" />
     </definition>
-    
+    <definition name="views/join/*.tiles" extends="default-layout">
+        <put-attribute name="content" value="/WEB-INF/views/join/{1}.jsp" />
+    </definition>
 </tiles-definitions>

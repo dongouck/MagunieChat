@@ -1,6 +1,8 @@
 package com.myspace.magunies.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -27,6 +29,11 @@ public class HomeServiceImpl implements HomeService{
 	@Override
 	public int selectBbsId() {
 		return homeMapper.selectBbsId();
+	}
+
+	@Override
+	public List<Map> selectHomeBbsList() {
+		return homeMapper.selectHomeBbsList();
 	}
 
 }
