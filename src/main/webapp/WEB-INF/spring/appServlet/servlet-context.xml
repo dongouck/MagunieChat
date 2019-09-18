@@ -26,13 +26,13 @@
 
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
+	</beans:bean> -->
 
 	<!-- Tiles 뷰 리졸버 -->
-	<beans:bean id="tielsViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<beans:property name="order" value="1" />
 	</beans:bean>

@@ -7,4 +7,8 @@ public interface LinkshareService {
 
 	List<Map> selectLinkShareServiceList();
 
+	void insertLinkshareService(Map<String, Object> linkParamMap);
+
+	int selectLinkshareService();
+
 }

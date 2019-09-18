@@ -20,7 +20,12 @@
 		select (count(*)+1) from homebbs;
 
 	</select>
-	
+	<select id="selectHomebbsrList" resultType="Map">
+			
+		SELECT 
+	* FROM homebbsr WHERE bbsrAvailable =1 ORDER BY bbsID DESC limit 5;
+		
+	</select>
 	
 	
 	<insert id="insertBbsList" parameterType="Map">
@@ -46,6 +51,37 @@
 				)
 
 	</insert>
+	
+	<select id="selectBbsrId" resultType="Integer">
+
+		select (count(*)+1) from homebbsr;
+
+	</select>
+	
+	<insert id="insertBbsrList" parameterType="Map">
+
+		insert into homebbsr(
+					bbsId,
+					bbsrId,
+					userId,
+					reply,
+					bbsrDate,
+					likedMember,
+					dislikedMember,
+					bbsrAvailable
+				) values (
+					#{bbsId},
+					#{bbsrId},
+					#{userId},
+					#{reply},
+					now(),
+					#{likedMember},
+					#{dislikedMember},
+					#{bbsrAvailable}
+				)
+
+	</insert>
+	
 
 </mapper> 
 

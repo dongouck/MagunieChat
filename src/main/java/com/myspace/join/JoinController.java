@@ -32,7 +32,8 @@ public class JoinController {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
-		if (user.getUserId().equals("") || user.getUserPassword().equals("") || user.getUserName().equals("")) {
+		if (user.getUserId().equals("") || user.getUserPassword().equals("") || 
+			user.getUserName().equals("")) {
 
 			out.println("<script>" 
 			+ "alert('입력되지 않은 항목이 있습니다.'); " 

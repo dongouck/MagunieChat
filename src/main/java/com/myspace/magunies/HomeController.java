@@ -25,19 +25,21 @@ public class HomeController {
 	public String home(ModelMap model) {
 		
 		List<Map> homeBbsList=homeService.selectHomeBbsList();
-		model.addAttribute("homeBbsList",homeBbsList);
+		List<Map> homeBbsrList=homeService.selectHomebbsrList();
+		
+		model.addAttribute("homeBbsList",	homeBbsList);
+		model.addAttribute("homeBbsrList",	homeBbsrList);
 		
 		return "views/main.tiles";
 	}
 	
-	@RequestMapping(value="homeWriteAction", method = RequestMethod.POST)
+	@RequestMapping(value="BbsWriteAction", method = RequestMethod.POST)
 	public String homeWrite(ModelMap model, HomeDTO homeDTO, HttpSession session) {
 		
 		int bbsId=homeService.selectBbsId();
-		System.out.println(homeDTO.getContent());
 		
 		HashMap<String, Object> bbsParam=new HashMap<String, Object>();
-		bbsParam.put("bbsId", bbsId);//homeDTO.getBbsID()
+		bbsParam.put("bbsId", bbsId);//homeDTO.getbbsId()
 		bbsParam.put("content", homeDTO.getContent());
 		bbsParam.put("writer", session.getAttribute("userId"));//임시
 		bbsParam.put("bbsAvailable", 1);//
@@ -48,7 +50,22 @@ public class HomeController {
 		
 		model.addAttribute("homeBbsList", homeBbsList);
 		
-		return "views/main.tiles";
+		return "redirect:/main";
 	}
-	
+	@RequestMapping(value="homebbsrWriteAction", method = RequestMethod.POST)
+	public String homebbsrWrite(HomeDTO homeDTO) {
+		
+		HashMap<String, Object> bbsrParam=new HashMap<String, Object>();
+		int bbsrId=homeService.selectBbsrId();
+		bbsrParam.put("bbsId",	homeDTO.getBbsId());
+		bbsrParam.put("bbsrId",	bbsrId);
+		bbsrParam.put("reply",homeDTO.getReply());
+		bbsrParam.put("bbsrAvailable",1);
+		//homeDTO.getBbsId()+"-"+
+		bbsrId=String.valueOf(bbsrId);
+		System.out.println(bbsrId);
+		/* homeService.insertBbsrList(bbsrParam); */
+		
+		return "redirect:/main";
+	}
 }

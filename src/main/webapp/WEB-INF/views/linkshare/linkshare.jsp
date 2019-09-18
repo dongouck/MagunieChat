@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script>
+
+	$(function(){
+		$("#loginStatus").val();
+	})
+
+</script>
+
 <div>
 	<div>
 		<h2>Linkshare</h2>
@@ -12,8 +20,10 @@
 	</div>
 	<div>
 		<form id="linkshareInput" method="post" action="linkshareWriteAction">
-			좌표<input type="text" name="linkUrl"></br>
-			설명<input type="text" name="comment">
+			좌표<input type="text" name="url"></br>
+			설명<input type="text" name="topic">
+				<input type="hidden" value="">
+			<input type="submit">
 		</form>
 	
 	</div>

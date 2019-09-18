@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.myspace.magunies.service.HomeDTO;
 import com.myspace.magunies.service.HomeService;
 
 @Service("homeService")
@@ -35,5 +36,21 @@ public class HomeServiceImpl implements HomeService{
 	public List<Map> selectHomeBbsList() {
 		return homeMapper.selectHomeBbsList();
 	}
+
+	@Override
+	public List<Map> selectHomebbsrList() {
+		return homeMapper.selectHomebbsrList();
+	}
+
+	@Override
+	public int selectBbsrId() {
+		return homeMapper.selectBbsrId();
+	}
+
+	@Override
+	public void insertBbsrList(HashMap<String, Object> bbsrParam) {
+		homeMapper.insertBbsrList(bbsrParam);
+	}
+
 
 }

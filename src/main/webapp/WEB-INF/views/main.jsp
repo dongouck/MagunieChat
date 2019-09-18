@@ -3,13 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script>
+	 function pressEnterKey() {
+		if (event.keyCode == 13) {
+			submitFn();
+		}
+	}
 
-function pressEnterKey(){
-     if(event.keyCode == 13) {
-    	 submitFn();
-     }
-}
-	
 	function submitFn() {
 
 		$loginStatus = $("#loginStatus");
@@ -17,6 +16,7 @@ function pressEnterKey(){
 			if ($("#homeBbsTextBox").val() == "") {
 				alert("뭐라도 좀 쓰십쇼!");
 			} else {
+				alert(this);
 				$("#homeBbs").submit();
 			}
 		} else {
@@ -28,10 +28,11 @@ function pressEnterKey(){
 	$(function() {
 		$("#submitBtn").click(function() {
 			submitFn();
-
 		})
-	})
-	
+		$(".homebbsrSubmit").click(function() {
+			submitFn();
+		})
+	}) 
 </script>
 
 <div class="section bgcolor noover">
@@ -43,9 +44,7 @@ function pressEnterKey(){
 						<mark class="rotate">특별한, 앙마스, 마구니</mark>
 						웹커뮤니티에 온걸 환영합니다 !
 					</h3>
-					<h3 class="subsub-menu center-content">
-						<c:out value="${sessionScope.NAME}" />
-					</h3>
+					<h3 class="subsub-menu center-content"></h3>
 				</div>
 			</div>
 		</div>
@@ -55,18 +54,17 @@ function pressEnterKey(){
 <div class="service-box m30">
 	<div>
 		<div class="service-box m30">
-			<form id="homeBbs" method="post"  action="homeWriteAction">
+			<form id="homeBbs" method="post" action="BbsWriteAction">
 				<select name="category">
 					<option value="1">잡담</option>
 					<option value="2">정보</option>
 					<option value="3">유머</option>
 					<option value="4">뉴스</option>
-				</select>
-				<input hidden="hidden">
-				<input type="text" id="homeBbsTextBox" name="content" onkeyup="pressEnterKey();"
-					placeholder="오늘은 무슨 이야기를 하고 싶으세요?" style="width: 350px;" /> 
+				</select> <input hidden="hidden"> <input type="text"
+					id="homeBbsTextBox" name="content" onkeyup="pressEnterKey();"
+					placeholder="오늘은 무슨 이야기를 하고 싶으세요?" style="width: 350px;" />
 			</form>
-			<button id="submitBtn" class="btn btn-primary" ></button>
+			<button id="submitBtn" class="btn btn-primary"></button>
 		</div>
 	</div>
 </div>
@@ -74,19 +72,36 @@ function pressEnterKey(){
 <section class="section lb nopadtop noover">
 	<div class="container">
 		<div class="row">
-			<c:forEach items="${homeBbsList}" var="homeBbbsList">
+			<c:forEach items="${homeBbsList}" var="homeBbsList">
 				<div class="col-lg-4 col-md-12">
 					<div class="service-box m30">
 						<!-- <i class="flaticon-monitor"></i> -->
 						<h3>
-							<c:out value="${homeBbbsList.content}" />
+							<c:if test="${homeBbsList.writer eq userId}">
+								<a><p>삭제</a>
+								<a onclick="rewriteFn()">수정</a>
+								</p>
+							</c:if>
+							<c:out value="${homeBbsList.content}" />
 						</h3>
 						<p>
-							<c:out value="${homeBbbsList.writer}" />
+							<c:out value="${homeBbsList.writer}" />
+							<c:out value="${homeBbsList.bbsDate}" />
 						</p>
-						<p>
-							<c:out value="${homeBbbsList.bbsDate}" />
-						</p>
+						<div>
+							<c:forEach items="${homeBbsrList}" var="homeBbsrList">
+								<c:if test="${homeBbsList.bbsId eq homeBbsrList.bbsId}">
+									<c:out value="${homeBbsrList.userId}" />
+									<c:out value="${homeBbsrList.reply}" />
+									<c:out value="${homeBbsrList.bbsrDate}" />
+								</c:if>
+							</c:forEach>
+							<form id="homebbsrInput${homeBbsList.bbsId}"	action="homebbsrWriteAction" method="post">
+								<input type="text" 		name="reply" /> 
+								<input type="hidden"	name="bbsId" value="${homeBbsList.bbsId}" />
+								<button class="homebbsrSubmit"></button>
+							</form>
+						</div>
 					</div>
 				</div>
 			</c:forEach>

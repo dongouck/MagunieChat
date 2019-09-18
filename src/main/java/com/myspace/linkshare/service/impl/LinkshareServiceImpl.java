@@ -19,4 +19,14 @@ public class LinkshareServiceImpl implements LinkshareService{
 	public List<Map> selectLinkShareServiceList() {
 		return linkshareMapper.selectLinkShareServiceList();
 	}
+
+	@Override
+	public void insertLinkshareService(Map<String, Object> linkParamMap) {
+		linkshareMapper.insertLinkshareService(linkParamMap);
+	}
+
+	@Override
+	public int selectLinkshareService() {
+		return linkshareMapper.selectLinkshareService();
+	}
 }

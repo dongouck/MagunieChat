@@ -3,9 +3,8 @@
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 
 <script>
-	function submitFn() {
+	function submitWriteFn() {
 
-		$loginStatus = $("#loginStatus");
 		if ($loginStatus.val() != null) {
 			if ($("#homeBbsTextBox").val() == "") {
 				alert("뭐라도 좀 쓰십쇼!");
@@ -17,12 +16,42 @@
 
 		}
 	}
+	function submitSearchFn(){
+		 
+		var inputType=document.getElementById("SearchOption");
+		var param;
+		if(inputType=="writer"){
+			param="writer";
+			if(inputType=="content"){
+				param="content";
+				if(input=="reply"){
+					param="reply";
+				}
+			}
+		}
+		$.ajax({
+			typ		:	"post",
+			url		:	"bbsSearch",
+			data	:	JSON.stringify(form),
+			contentType:"application/json",
+			success	:	function(data){
+				
+				alert("sucees!");
+			}
+		})
+	}
+	
 
 	$(function() {
-		$("#submitBtn").click(function() {
-			submitFn();
+		$("#submitWriteBtn").click(function() {
+			submitWriteFn();
 
 		})
+		
+		$("#submitSearchBtn").click(function(){
+			submitSearchFn();
+		})
+		
 	})
 </script>
 
@@ -39,7 +68,7 @@
 				</select> 
 				<input type="text" id="homeBbsTextBox" name="content"
 					placeholder="오늘은 무슨 이야기를 하고 싶으세요?" style="width: 600px;" /> 
-				<input type="button" id="submitBtn" class="btn btn-primary" />
+				<input type="button" id="submitWriteBtn" class="btn btn-primary" />
 			</form>
 		</div>
 	</div>
@@ -68,13 +97,13 @@
 </section>
 
 <form id="bbsSearchFrm" method="post" action="bbsSearch">
-	<select name="SearchOption">
-		<option value="">게시자</option>
-		<option value="">내용</option>
-		<option value="">댓글</option>
+	<select id="SearchOption" name="SearchOption">
+		<option value="writer">게시자</option>
+		<option value="content">내용</option>
+		<option value="reply">댓글</option>
 	</select>
 	<input type="text" name="searchKeyword">
-	<input type="submit" value="검색">
+	<input type="submit" id="submitSearchBtn" value="검색">
 </form>
 <div class="container">
 

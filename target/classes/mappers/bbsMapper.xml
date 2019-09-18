@@ -3,31 +3,39 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.myspace.bbs.Service.impl.BbsMapper">
 
-	<!-- <select id="login" parameterType="" resultType="">
-	
-	
-	</select> -->
-	
+	<!-- <select id="login" parameterType="" resultType=""> </select> -->
+
 	<select id="selectBbsDate" resultType="Map">
-		
+
 		SELECT NOW();
-	
+
 	</select>
-	
+
 	<select id="getBbsList" parameterType="java.util.HashMap"
 		resultType="java.util.HashMap">
-		SELECT 
-* FROM homebbs WHERE bbsAvailable =1 ORDER BY bbsID DESC limit 10;
+		SELECT * FROM homebbs WHERE bbsAvailable =1 ORDER BY bbsID
+		DESC limit 10;
 	</select>
-	
-	<select id="selectTestList" resultType="Map">
-		SELECT *FROM T_WORKGROUP;
+
+	<select id="getSearchedList" parameterType="Map"
+		resultType="Map">
+		SELECT *FROM homebbs
+		<where>
+			<if test="SearchOption=='content' and SearchOption!=null and SearchOption!=''">
+				and content like '%${searchKeyword}%'
+			</if>
+			<if test="SearchOption=='writer' and SearchOption!=null and SearchOption!=''">
+				and writer like '%${searchKeyword}%'
+			</if>
+		</where>
+
 	</select>
-	
-	<insert id="testingInsert" parameterType="com.myspace.bbs.Service.BbsDTO"> 
-		INSERT INTO T_WORKGROUP 
-		 VALUES ( #{emp_id}, #{emp_no}, #{emp_name}, #{country}, #{dept} ) 
-	
+
+	<insert id="testingInsert"
+		parameterType="com.myspace.bbs.Service.BbsDTO">
+		INSERT INTO T_WORKGROUP
+		VALUES ( #{emp_id}, #{emp_no}, #{emp_name}, #{country}, #{dept} )
+
 	</insert>
 
 </mapper> 

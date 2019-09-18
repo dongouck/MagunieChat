@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.myspace.magunies.service.HomeDTO;
+
 @Mapper
 public interface HomeMapper {
 
@@ -16,6 +18,12 @@ public interface HomeMapper {
 	int selectBbsId();
 
 	List<Map> selectHomeBbsList();
+
+	List<Map> selectHomebbsrList();
+
+	int selectBbsrId();
+
+	void insertBbsrList(HashMap<String, Object> bbsrParam);
 
 
 

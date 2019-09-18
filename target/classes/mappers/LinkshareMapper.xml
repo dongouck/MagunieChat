@@ -4,7 +4,7 @@
 <mapper namespace="com.myspace.linkshare.service.impl.LinkshareMapper">
 
 	<select id="selectLinkShareServiceList" resultType="Map">
-		SELECT *FROM LINKSPAGE;
+		SELECT *FROM linkpage;
 	</select>
 	
 	<!-- <insert id="testingInsert" parameterType="com.myspace.bbs.Service.BbsDTO"> 
@@ -12,9 +12,25 @@
 		 VALUES ( #{emp_id}, #{emp_no}, #{emp_name}, #{country}, #{dept} ) 
 	
 	</insert> -->
-	
-	<select id="????" resultType="Map">
-		SELECT NOW();
+	<select id="selectLinkshareService" resultType="Integer">
+
+		select (count(*)+1) from linkpage;
+
+	</select>
+	<select id="insertLinkshareService" resultType="Map" parameterType="map">
+		INSERT INTO linkpage (
+					linkpageNo,
+					topic,
+					url,
+					date,
+					writer
+				) VALUES (
+					#{linkpageNo}, 
+					#{topic},
+					#{url}, 
+					now(),
+					#{writer}
+					) 
 	</select>
 	
 	

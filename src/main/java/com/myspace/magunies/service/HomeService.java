@@ -14,4 +14,10 @@ public interface HomeService {
 
 	List<Map> selectHomeBbsList();
 
+	List<Map> selectHomebbsrList();
+
+	int selectBbsrId();
+
+	void insertBbsrList(HashMap<String, Object> bbsrParam);
+
 }

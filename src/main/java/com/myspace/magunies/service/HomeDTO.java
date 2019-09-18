@@ -2,7 +2,7 @@ package com.myspace.magunies.service;
 
 public class HomeDTO {
 
-	private int bbsID;
+	private int bbsId;
 	private String content;
 	private String writer;
 	private String bbsDate;
@@ -11,12 +11,65 @@ public class HomeDTO {
 	private int bbsAvailable;
 	private int replyCount;
 	
+	private int bbsrId;
+	private String userId;
+	private String reply;
+	private String bbsrDate;
 	
-	public int getBbsID() {
-		return bbsID;
+	
+	public int getBbsrId() {
+		return bbsrId;
 	}
-	public void setBbsID(int bbsID) {
-		this.bbsID = bbsID;
+	public void setBbsrId(int bbsrId) {
+		this.bbsrId = bbsrId;
+	}
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+	public String getBbsrDate() {
+		return bbsrDate;
+	}
+	public void setBbsrDate(String bbsrDate) {
+		this.bbsrDate = bbsrDate;
+	}
+	public String getLikedMember() {
+		return likedMember;
+	}
+	public void setLikedMember(String likedMember) {
+		this.likedMember = likedMember;
+	}
+	public String getDislikedMember() {
+		return dislikedMember;
+	}
+	public void setDislikedMember(String dislikedMember) {
+		this.dislikedMember = dislikedMember;
+	}
+	public int getBbsrAvailable() {
+		return bbsrAvailable;
+	}
+	public void setBbsrAvailable(int bbsrAvailable) {
+		this.bbsrAvailable = bbsrAvailable;
+	}
+	private String likedMember;
+	private String dislikedMember;
+	private int bbsrAvailable;
+	
+	
+	
+	public int getBbsId() {
+		return bbsId;
+	}
+	public void setBbsId(int bbsId) {
+		this.bbsId = bbsId;
 	}
 	public String getContent() {
 		return content;

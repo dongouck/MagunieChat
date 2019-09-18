@@ -50,7 +50,11 @@
 				<!-- end logo -->
 				<div class="margin-block"></div>
 				<div class="menu-search">
-
+					<h4>
+						<c:if test="${userId ne null}">
+						"${userId}"
+						</c:if>
+					</h4>
 					<%
 						if (session.getAttribute("userId") == null) {
 					%>
@@ -67,7 +71,7 @@
 					<%
 						}
 					%>
-					<input type="button" value="회원가입" />
+					<button action="" value="회원가입" ></button>
 				</div>
 				<!-- end menu-search -->
 
@@ -75,14 +79,14 @@
 				<ul class="primary-menu">
 					<li id="main" class="child-menu"><a href="main">Main <i
 							class="fa fa-angle-right"></i></a></li>
-					<li id="sharedLink" class="child-menu"><a href="linkshare.do">Shared
+					<li id="sharedLink" class="child-menu"><a href="linkshare">Shared
 							Links <i class="fa fa-angle-right"></i>
 					</a></li>
-					<li id="bbs" class="child-menu"><a href="bbs.do">BBS<i
+					<li id="bbs" class="child-menu"><a href="bbs">BBS<i
 							class="fa fa-angle-right"></i></a></li>
-					<li id="blackHistory" class="child-menu"><a href="#">Black
+					<!-- <li id="blackHistory" class="child-menu"><a href="#">Black
 							History <i class="fa fa-angle-right"></i>
-					</a>
+					</a> 
 						<div class="sub-menu-wrapper">
 							<ul class="sub-menu center-content">
 								<li><a href="#">Menu Example 01 <i
@@ -130,8 +134,12 @@
 									</div></li>
 							</ul>
 						</div></li>
-					<li class="child-menu"><a href="#">Contact <i
-							class="fa fa-angle-right"></i></a></li>
+						-->
+					<li class="child-menu">
+						<a href="#">
+							Contact <i class="fa fa-angle-right"></i>
+						</a>
+					</li>
 				</ul>
 
 				<div class="margin-block"></div>
