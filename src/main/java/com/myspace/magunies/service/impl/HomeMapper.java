@@ -17,13 +17,19 @@ public interface HomeMapper {
 
 	int selectBbsId();
 
+	List<String> selectHomeBbsrParam();
+	
 	List<Map> selectHomeBbsList();
 
-	List<Map> selectHomebbsrList();
+	List<Map> selectHomebbsrList(HashMap<String, Object> param);
 
 	int selectBbsrId();
 
 	void insertBbsrList(HashMap<String, Object> bbsrParam);
+
+	int selectBbsrOrder(int bbsId);
+
+	
 
 
 

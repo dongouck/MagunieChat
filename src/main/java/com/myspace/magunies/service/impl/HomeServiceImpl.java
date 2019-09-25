@@ -38,8 +38,8 @@ public class HomeServiceImpl implements HomeService{
 	}
 
 	@Override
-	public List<Map> selectHomebbsrList() {
-		return homeMapper.selectHomebbsrList();
+	public List<Map> selectHomebbsrList(HashMap<String, Object> param) {
+		return homeMapper.selectHomebbsrList(param);
 	}
 
 	@Override
@@ -50,6 +50,16 @@ public class HomeServiceImpl implements HomeService{
 	@Override
 	public void insertBbsrList(HashMap<String, Object> bbsrParam) {
 		homeMapper.insertBbsrList(bbsrParam);
+	}
+
+	@Override
+	public int selectBbsrOrder(int bbsId) {
+		return homeMapper.selectBbsrOrder(bbsId);
+	}
+
+	@Override
+	public List<String> selectHomeBbsrParam() {
+		return homeMapper.selectHomeBbsrParam();
 	}
 
 

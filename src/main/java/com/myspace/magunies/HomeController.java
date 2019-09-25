@@ -18,14 +18,28 @@ import com.myspace.magunies.service.HomeService;
 @Controller
 public class HomeController {
 	
+	BbsManager bm=new BbsManager();
+	
 	@Resource
 	private HomeService homeService;
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public String home(ModelMap model) {
 		
+		List<String> homeBbsrParam=homeService.selectHomeBbsrParam();
+		System.out.println(homeBbsrParam);
+		
+		HashMap<String, Object> param=new HashMap<String, Object>();
+		for(int i=1; i<6; i++) {
+			param.put(""+i, homeBbsrParam.get(0));
+		}
+		
+		System.out.println("toString : "+param);
+		
 		List<Map> homeBbsList=homeService.selectHomeBbsList();
-		List<Map> homeBbsrList=homeService.selectHomebbsrList();
+		List<Map> homeBbsrList=homeService.selectHomebbsrList(param);
+		
+		System.out.println("homeBbsList"+homeBbsrList);
 		
 		model.addAttribute("homeBbsList",	homeBbsList);
 		model.addAttribute("homeBbsrList",	homeBbsrList);
@@ -53,18 +67,20 @@ public class HomeController {
 		return "redirect:/main";
 	}
 	@RequestMapping(value="homebbsrWriteAction", method = RequestMethod.POST)
-	public String homebbsrWrite(HomeDTO homeDTO) {
+	public String homebbsrWrite(HomeDTO homeDTO, HttpSession session) {
+		
+		int bbsrOrder=homeService.selectBbsrOrder(homeDTO.getBbsId());
+		String bbsrId=bm.bbsrNumbering(homeDTO.getBbsId(), bbsrOrder);
 		
 		HashMap<String, Object> bbsrParam=new HashMap<String, Object>();
-		int bbsrId=homeService.selectBbsrId();
+		
 		bbsrParam.put("bbsId",	homeDTO.getBbsId());
 		bbsrParam.put("bbsrId",	bbsrId);
+		bbsrParam.put("writer", session.getAttribute("userId"));
 		bbsrParam.put("reply",homeDTO.getReply());
 		bbsrParam.put("bbsrAvailable",1);
-		//homeDTO.getBbsId()+"-"+
-		bbsrId=String.valueOf(bbsrId);
-		System.out.println(bbsrId);
-		/* homeService.insertBbsrList(bbsrParam); */
+		
+		homeService.insertBbsrList(bbsrParam);
 		
 		return "redirect:/main";
 	}
