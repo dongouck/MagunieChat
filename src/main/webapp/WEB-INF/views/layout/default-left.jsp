@@ -61,10 +61,9 @@
 
 					<form id="loginFrm" action="loginAction.do" method="POST">
 						<div class="">
-							<input type="text" name="userId" class="form-control"
-								placeholder="ID"> <input type="text" name="userPassword"
-								class="form-control" placeholder="PASSWORD"> <input
-								type="button" onclick="loginAction()" value="log in" />
+							<input type="text" name="userId" class="form-control"	placeholder="ID">
+							<input type="password" name="userPassword" class="form-control" placeholder="PASSWORD">
+							<input type="button" onclick="loginAction()" value="log in" />
 						</div>
 					</form>
 

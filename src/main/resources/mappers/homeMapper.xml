@@ -57,7 +57,8 @@
 		select (count(*)+1) from homebbsr;
 
 	</select>
-	
+
+
 	<insert id="insertBbsrList" parameterType="Map">
 
 		insert into homebbsr(

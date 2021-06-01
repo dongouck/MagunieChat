@@ -1,19 +1,18 @@
 package com.myspace.magunies;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
-
+import com.myspace.magunies.service.HomeDTO;
+import com.myspace.magunies.service.HomeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.myspace.magunies.service.HomeDTO;
-import com.myspace.magunies.service.HomeService;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -24,17 +23,16 @@ public class HomeController {
 	private HomeService homeService;
 	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String home(ModelMap model) {
+	public String home(ModelMap model, HttpServletRequest request) {
 		
-		List<String> homeBbsrParam=homeService.selectHomeBbsrParam();
-		System.out.println(homeBbsrParam);
-		
+		//List<String> homeBbsrParam=homeService.selectHomeBbsrParam();
+		//System.out.println(homeBbsrParam);
 		HashMap<String, Object> param=new HashMap<String, Object>();
 		for(int i=1; i<6; i++) {
-			param.put(""+i, homeBbsrParam.get(0));
+			//param.put(""+i, homeBbsrParam.get(0));
 		}
 		
-		System.out.println("toString : "+param);
+		System.out.println("toString : "+param );
 		
 		List<Map> homeBbsList=homeService.selectHomeBbsList();
 		List<Map> homeBbsrList=homeService.selectHomebbsrList(param);
